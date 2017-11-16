@@ -6,16 +6,39 @@
     <title>Howdy!</title>
 </head>
 <body>
-    <div layout:fragment="content">
-        <div>
-            <p th:text="'Hello, ' + ${name} + '!'" />
-            <p th:text="${age}" />
+    <section layout:fragment="content" class="section">
+        <div class="container">
+            <h1 class="title">Greeting</h1>
+            <div th:switch="${greeting.name}">
+                <div th:case="null">
+                    Please fill out the form below.
+                </div>
+                <div th:case="*">
+                    <p th:text="'Hello, ' + ${greeting.name} + '!'" />
+                    <p th:text="'You are ' + ${greeting.age} + ' years old.'" />
+                </div>
+            </div>
 
-            <b>Days:</b>
-            <ul>
-                <li th:each="day: ${days}" th:text="${day}" />
-            </ul>
+            <form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
+                <div class="field">
+                    <label class="label">Name</label>
+                    <div class="control">
+                        <input class="input" type="text" placeholder="Name" th:field="*{name}" />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label class="label">Age</label>
+                    <div class="control">
+                        <input class="input" type="number" placeholder="Age" th:field="*{age}" />
+                    </div>
+                </div>
+
+                <div class="control">
+                    <button class="button is-primary">Submit</button>
+                </div>
+            </form>
         </div>
-    </div>
+    </section>
 </body>
 </html>
