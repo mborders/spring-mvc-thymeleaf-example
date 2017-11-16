@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}">
+<head>
+    <title>Howdy!</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div>
+            <p th:text="'Hello, ' + ${name} + '!'" />
+            <p th:text="${age}" />
+
+            <b>Days:</b>
+            <ul>
+                <li th:each="day: ${days}" th:text="${day}" />
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

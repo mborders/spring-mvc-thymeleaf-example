@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{template.html}">
+<head>
+  <title>Spring MVC</title>
+</head>
+<body>
+  <section layout:fragment="content" class="section">
+    <div class="container">
+      <h1 class="title">Welcome! <span th:text="${time}"></span></h1>
+    </div>
+  </section>
+</body>
+</html>
