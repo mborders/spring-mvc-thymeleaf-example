@@ -6,9 +6,9 @@
     <title>Howdy!</title>
 </head>
 <body>
-    <section layout:fragment="content" class="section">
+    <div layout:fragment="content" class="section">
         <div class="container">
-            <h1 class="title">Greeting</h1>
+            <h1>Greeting</h1>
             <div th:switch="${greeting.name}">
                 <div th:case="null">
                     Please fill out the form below.
@@ -19,26 +19,30 @@
                 </div>
             </div>
 
-            <form action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
-                <div class="field">
-                    <label class="label">Name</label>
-                    <div class="control">
-                        <input class="input" type="text" placeholder="Name" th:field="*{name}" />
+            <div class="row">
+                <form class="col s12" action="#" th:action="@{/greeting}" th:object="${greeting}" method="post">
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input class="validate" type="text" id="name" placeholder="Name" th:field="*{name}" />
+                            <label for="name">Name</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input class="validate" type="text" id="age" placeholder="Age" th:field="*{age}" />
+                            <label for="age">Age</label>
+                        </div>
                     </div>
-                </div>
-
-                <div class="field">
-                    <label class="label">Age</label>
-                    <div class="control">
-                        <input class="input" type="number" placeholder="Age" th:field="*{age}" />
+                    <div class="row">
+                        <div class="col s12">
+                            <button type="submit" class="waves-effect waves-light btn">Submit</button>
+                        </div>
                     </div>
-                </div>
-
-                <div class="control">
-                    <button class="button is-primary">Submit</button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </section>
+
+        <script th:inline="javascript">
+            console.log([[${greeting}]])
+        </script>
+    </div>
 </body>
 </html>

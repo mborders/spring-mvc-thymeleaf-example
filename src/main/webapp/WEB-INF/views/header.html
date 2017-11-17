@@ -2,12 +2,12 @@
 <html xmlns:th="http://www.thymeleaf.org"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
   <body>
-    <nav layout:fragment="header" class="navbar has-shadow" role="navigation" aria-label="main navigation">
-      <div class="navbar-menu">
-        <div class="navbar-start">
-          <a class="navbar-item" href="/">Home</a>
-          <a class="navbar-item" href="/greeting">Greeting</a>
-        </div>
+    <nav layout:fragment="header" class="blue darken-1">
+      <div class="nav-wrapper">
+        <ul id="nav-mobile" class="left hide-on-med-and-down">
+          <li><a href="/">Home</a></li>
+          <li><a href="/greeting">Greeting</a></li>
+        </ul>
       </div>
     </nav>
   </body>
